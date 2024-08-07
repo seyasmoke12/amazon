@@ -5,10 +5,11 @@ import { productUrl } from '../../Api/endPoints'
 import LayOut from '../../components/LayOut/LayOut';
 import ProductCard from '../../components/Product/ProductCard';
 import classes from "./Results.module.css"
+import Loading from '../../components/Loader/Loder'
 function Results() {
     const [results, setResults] = useState([]);
     const {categoryName} = useParams()
-
+    const [isLoading,setIsLoading] = useState(false)
 
     useEffect(() => {
 
@@ -16,6 +17,7 @@ function Results() {
     .then((res)=>{
         setResults(res.data)
         // console.log(res.data)
+        setIsLoading(true)
     }).catch((error)=>{
         console.log(error)
     })
@@ -32,7 +34,9 @@ function Results() {
 <h1 style={{ padding: "30px" }}>Results</h1>
       <p style={{ padding: "30px" }}>Category / {categoryName}</p>
         <hr />
-       <div className={classes.products_container}>
+        {
+            !isLoading ? <Loading /> :(
+                 <div className={classes.products_container}>
             {results?.map((product) => (
               <ProductCard
            key={product.id}
@@ -42,6 +46,9 @@ function Results() {
               />
           ))}
         </div>
+            )
+        }
+      
       </section>
     </LayOut>
   )
