@@ -55,7 +55,7 @@ function Header() {
                 </a>
                 <Link to="/auth">
     <div>
-               <p>Sign In</p>
+              <p>Sign In</p>
                 <span>Account & Lists</span>
                 </div>
             </Link>
