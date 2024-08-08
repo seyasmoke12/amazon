@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router,Routes,Route,} from "react-router-dom";
-import Payment from './pages/Payment/Payment'
+// import Payment from './pages/Payment/Payment'
+import Payment from "./pages/Payment/Payment"
 import Orders from './pages/Orders/Orders'
 import Cart from './pages/Cart/Cart'
 import Auth from './pages/Auth/Auth'
